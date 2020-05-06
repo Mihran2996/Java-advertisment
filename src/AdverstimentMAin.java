@@ -3,13 +3,15 @@ import model.Gender;
 import model.Item;
 import model.User;
 import storage.DataStorage;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
 
-public class AdverstimentMAin implements Comands{
+public class AdverstimentMAin implements Comands {
     private static Scanner scanner = new Scanner(System.in);
     private static DataStorage dataStorage = new DataStorage();
     private static User currentUser = null;
@@ -17,6 +19,7 @@ public class AdverstimentMAin implements Comands{
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         boolean isRun = true;
         while (isRun) {
+            createdFiles();
             dataStorage.initData();
             Comands.printMainComands();
             int comand;
@@ -184,6 +187,18 @@ public class AdverstimentMAin implements Comands{
         }
     }
 
+    public static void createdFiles() throws IOException {
+        File file = new File("C:\\Users\\MIHRAN\\Homework\\src\\tnayinner\\advertisment\\util\\file.txt");
+        File file2 = new File("C:\\Users\\MIHRAN\\Homework\\src\\tnayinner\\advertisment\\util\\file2.txt");
+
+        if (!file.exists()) {
+            boolean newFile = file.createNewFile();
+        }
+        if (!file2.exists()) {
+            boolean newFile = file2.createNewFile();
+        }
+
+    }
 
 
 }
